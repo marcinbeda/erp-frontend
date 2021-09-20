@@ -1,4 +1,4 @@
-.exit-button {
+.exit-button{
     -fx-background-color: -fx-primary-red;
     -fx-background-radius: 0;
     -fx-text-fill: white;
@@ -6,31 +6,31 @@
     -fx-alignment: center;
 }
 
-.exit-button:hover {
+.exit-button:hover{
     -fx-background-color: -fx-secondary-red;
 }
 
-.title {
+.title{
     -fx-font-size: 40px;
     -fx-text-fill: -fx-primary-blue;
 }
 
-.background {
+.background{
     -fx-background-color: -fx-primary-background;
     -fx-border-color: -fx-primary-blue;
 }
 
-.text {
+.text{
     -fx-text-fill: -fx-primary-blue;
 }
 
-.login-button {
+.login-button{
     -fx-text-fill: -fx-primary-blue;
     -fx-background-color: -fx-primary-background;
     -fx-border-color: -fx-primary-blue;
     -fx-background-radius: 0;
 }
 
-.login-button:hover {
+.login-button:hover{
     -fx-background-color: -fx-secondary-background;
 }

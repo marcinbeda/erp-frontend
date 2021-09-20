@@ -13,12 +13,13 @@ public class App extends Application {
     private static final int HEIGHT = 400;
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/login.fxml"));
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/pl/beda/erpFrontend/fxml/login.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(root, WIDTH, HEIGHT));
         primaryStage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);

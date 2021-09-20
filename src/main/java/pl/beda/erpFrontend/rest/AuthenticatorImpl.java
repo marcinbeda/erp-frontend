@@ -1,29 +1,37 @@
 package pl.beda.erpFrontend.rest;
 
-import pl.beda.erpFrontend.dto.UserCredentialsDto;
+import org.springframework.web.client.RestTemplate;
+import pl.beda.erpFrontend.dto.OperatorAuthenticationResultDto;
+import pl.beda.erpFrontend.dto.OperatorCredentialsDto;
 
 public class AuthenticatorImpl implements Authenticator {
 
-    private static final String LOGIN = "user";
-    private static final String PASSWORD = "password";
+    private static final String AUTHENTICATION_URL = "http://localhost:8080/verify_operator_credentials";
+
+    private final RestTemplate restTemplate;
+
+    public AuthenticatorImpl(){
+        restTemplate = new RestTemplate();
+    }
+
 
     @Override
-    public void authenticate(UserCredentialsDto userCredentialsDto, AuthenticationResultHandler authenticationResultHandler) {
-        Runnable authenticationTask = createAuthenticationTask(userCredentialsDto, authenticationResultHandler);
+    public void authenticate(OperatorCredentialsDto operatorCredentialsDto, AuthenticationResultHandler authenticationResultHandler) {
+        Runnable authenticationTask = () -> {
+            processAuthentication(operatorCredentialsDto, authenticationResultHandler);
+        };
         Thread authenticationThread = new Thread(authenticationTask);
         authenticationThread.setDaemon(true);
         authenticationThread.start();
     }
 
-    private Runnable createAuthenticationTask(UserCredentialsDto userCredentialsDto, AuthenticationResultHandler authenticationResultHandler) {
-        return () -> {
-            try {
-                Thread.sleep(1000);
-                boolean authenticated = LOGIN.equals(userCredentialsDto.getLogin()) && PASSWORD.equals(userCredentialsDto.getPassword());
-                authenticationResultHandler.handle(authenticated);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        };
+    private void processAuthentication(OperatorCredentialsDto operatorCredentialsDto, AuthenticationResultHandler authenticationResultHandler) {
+//        ResponseEntity<OperatorAuthenticationResultDto> responseEntity = restTemplate.postForEntity(AUTHENTICATION_URL, operatorCredentialsDto, OperatorAuthenticationResultDto.class);
+       OperatorAuthenticationResultDto dto = new OperatorAuthenticationResultDto();
+       dto.setAuthenticated(true);
+       dto.setFirstName("John");
+       dto.setLastName("Smith");
+       dto.setIdOperator(1L);
+        authenticationResultHandler.handle(dto);
     }
 }
