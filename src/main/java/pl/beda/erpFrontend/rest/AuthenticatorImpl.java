@@ -3,6 +3,7 @@ package pl.beda.erpFrontend.rest;
 import org.springframework.web.client.RestTemplate;
 import pl.beda.erpFrontend.dto.OperatorAuthenticationResultDto;
 import pl.beda.erpFrontend.dto.OperatorCredentialsDto;
+import pl.beda.erpFrontend.handler.AuthenticationResultHandler;
 
 public class AuthenticatorImpl implements Authenticator {
 
