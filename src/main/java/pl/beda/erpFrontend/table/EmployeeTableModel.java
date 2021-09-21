@@ -10,7 +10,6 @@ public class EmployeeTableModel {
     private final SimpleStringProperty lastName;
     private final SimpleStringProperty salary;
 
-
     public EmployeeTableModel(Long idEmployee, String firstName, String lastName, String salary) {
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
@@ -21,7 +20,6 @@ public class EmployeeTableModel {
     public static EmployeeTableModel of(EmployeeDto dto) {
         return new EmployeeTableModel(dto.getIdEmployee(), dto.getFirstName(), dto.getLastName(), dto.getSalary());
     }
-
 
     public String getFirstName() {
         return firstName.get();

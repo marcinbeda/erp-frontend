@@ -55,7 +55,7 @@ public class DeleteEmployeeController implements Initializable {
             waitingPopup.show();
             Thread thread = new Thread(() -> {
                 employeeRestClient.deleteEmployee(idEmployee, () -> {
-                    Platform.runLater(() ->{
+                    Platform.runLater(() -> {
                         waitingPopup.close();
                         Stage infoPopup = popupFactory.createInfoPopup("Employee has been deleted", () -> {
                             getStage().close();
@@ -69,20 +69,19 @@ public class DeleteEmployeeController implements Initializable {
 
     }
 
-
-    public void loadEmployeeData(EmployeeTableModel employee){
-                this.idEmployee = employee.getIdEmployee();
-                firstNameLabel.setText(employee.getFirstName());
-                lastNameLabel.setText(employee.getLastName());
+    public void loadEmployeeData(EmployeeTableModel employee) {
+        this.idEmployee = employee.getIdEmployee();
+        firstNameLabel.setText(employee.getFirstName());
+        lastNameLabel.setText(employee.getLastName());
     }
 
     private void initializeCancelButton() {
-        cancelButton.setOnAction((x) ->{
+        cancelButton.setOnAction((x) -> {
             getStage().close();
         });
     }
 
-    private Stage getStage(){
+    private Stage getStage() {
         return (Stage) deleteEmployeeBorderPane.getScene().getWindow();
     }
 }

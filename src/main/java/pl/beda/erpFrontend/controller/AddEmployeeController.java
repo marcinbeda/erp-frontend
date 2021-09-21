@@ -41,7 +41,6 @@ public class AddEmployeeController implements Initializable {
         employeeRestClient = new EmployeeRestClient();
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeCancelButton();
@@ -75,12 +74,12 @@ public class AddEmployeeController implements Initializable {
     }
 
     private void initializeCancelButton() {
-        cancelButton.setOnAction((x) ->{
+        cancelButton.setOnAction((x) -> {
             getStage().close();
         });
     }
 
-    private Stage getStage(){
+    private Stage getStage() {
         return (Stage) addEmployeeBorderPane.getScene().getWindow();
     }
 

@@ -53,7 +53,7 @@ public class EditEmployeeController implements Initializable {
     }
 
     private void initializeEditButton() {
-        editButton.setOnAction((x ->{
+        editButton.setOnAction((x -> {
             Stage waitingPopup = popupFactory.createWaitingPopup("Connecting to the server...");
             waitingPopup.show();
             Thread thread = new Thread(() -> {
@@ -84,10 +84,10 @@ public class EditEmployeeController implements Initializable {
         return dto;
     }
 
-    public void loadEmployeeData(Long idEmployee, EmployeeLoadedHandler handler){
+    public void loadEmployeeData(Long idEmployee, EmployeeLoadedHandler handler) {
         Thread thread = new Thread(() -> {
             EmployeeDto dto = employeeRestClient.getEmployee(idEmployee);
-            Platform.runLater(() ->{
+            Platform.runLater(() -> {
                 this.idEmployee = idEmployee;
                 firstNameTextField.setText(dto.getFirstName());
                 lastNameTextField.setText(dto.getLastName());
@@ -99,12 +99,12 @@ public class EditEmployeeController implements Initializable {
     }
 
     private void initializeCancelButton() {
-        cancelButton.setOnAction((x) ->{
+        cancelButton.setOnAction((x) -> {
             getStage().close();
         });
     }
 
-    private Stage getStage(){
+    private Stage getStage() {
         return (Stage) editEmployeeBorderPane.getScene().getWindow();
     }
 

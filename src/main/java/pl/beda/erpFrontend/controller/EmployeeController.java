@@ -75,7 +75,7 @@ public class EmployeeController implements Initializable {
     private void initializeDeleteEmployeeButton() {
         deleteButton.setOnAction(x -> {
             EmployeeTableModel selectedEmployee = employeeTableView.getSelectionModel().getSelectedItem();
-            if( selectedEmployee != null){
+            if (selectedEmployee != null) {
                 try {
                     Stage deleteEmployeeStage = createEmployeeCrudStage();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource(DELETE_EMPLOYEE_FXML));
@@ -94,7 +94,7 @@ public class EmployeeController implements Initializable {
     private void initializeEditEmployeeButton() {
         editButton.setOnAction(x -> {
             EmployeeTableModel selectedEmployee = employeeTableView.getSelectionModel().getSelectedItem();
-            if( selectedEmployee != null){
+            if (selectedEmployee != null) {
 
                 try {
                     Stage waitingPopup = popupFactory.createWaitingPopup("Loading employee data...");
@@ -197,6 +197,5 @@ public class EmployeeController implements Initializable {
         });
         thread.start();
     }
-
 
 }

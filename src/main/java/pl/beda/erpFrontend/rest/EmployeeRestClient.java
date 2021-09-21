@@ -17,22 +17,21 @@ public class EmployeeRestClient {
 
     private final RestTemplate restTemplate;
 
-    public EmployeeRestClient(){
+    public EmployeeRestClient() {
         restTemplate = new RestTemplate();
     }
 
-    public List<EmployeeDto> getEmployees(){
+    public List<EmployeeDto> getEmployees() {
         ResponseEntity<EmployeeDto[]> employeesResponseEntity = restTemplate.getForEntity(EMPLOYEES_URL, EmployeeDto[].class);
         return Arrays.asList(employeesResponseEntity.getBody());
     }
 
-
     public void saveEmployee(EmployeeDto dto, SavedEmployeeHandler handler) {
         ResponseEntity<EmployeeDto> responseEntity = restTemplate.postForEntity(EMPLOYEES_URL, dto, EmployeeDto.class);
 
-        if(HttpStatus.OK.equals(responseEntity.getStatusCode())){
+        if (HttpStatus.OK.equals(responseEntity.getStatusCode())) {
             handler.handle();
-        } else{
+        } else {
             //TODO implement
         }
 
@@ -42,9 +41,9 @@ public class EmployeeRestClient {
         String url = EMPLOYEES_URL + "/" + idEmployee;
         System.out.println(url);
         ResponseEntity<EmployeeDto> responseEntity = restTemplate.getForEntity(url, EmployeeDto.class);
-        if(HttpStatus.OK.equals(responseEntity.getStatusCode())){
+        if (HttpStatus.OK.equals(responseEntity.getStatusCode())) {
             return responseEntity.getBody();
-        } else{
+        } else {
             //TODO implement
             throw new RuntimeException("Can't load employee");
         }

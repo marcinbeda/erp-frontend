@@ -21,14 +21,14 @@ public class PopupFactory {
         return "-fx-background-color: #c7c7c7; -fx-border-color: #003366;";
     }
 
-    private String okButtonStyle(){
+    private String okButtonStyle() {
         return "-fx-text-fill: #003366;\n" +
                 "        -fx-background-color: #c7c7c7;\n" +
                 "        -fx-border-color: #003366;\n" +
                 "        -fx-background-radius: 0;";
     }
 
-    private String okButtonHoverStyle(){
+    private String okButtonHoverStyle() {
         return "-fx-text-fill: #003366;\n" +
                 "        -fx-background-color: #e1e1e1;\n" +
                 "        -fx-border-color: #003366;\n" +

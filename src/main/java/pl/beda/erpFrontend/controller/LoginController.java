@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -36,13 +37,12 @@ public class LoginController implements Initializable {
     @FXML
     private TextField loginTextField;
     @FXML
-    private TextField passwordTextField;
+    private PasswordField passwordTextField;
 
-    public LoginController(){
+    public LoginController() {
         popupFactory = new PopupFactory();
         authenticator = new AuthenticatorImpl();
     }
-
 
     public void initialize(URL location, ResourceBundle resources) {
         initializeExitButton();
@@ -51,7 +51,7 @@ public class LoginController implements Initializable {
 
     private void initializeLoginButton() {
         loginButton.setOnAction((x) -> {
-           performAuthentication();
+            performAuthentication();
         });
     }
 
@@ -64,11 +64,11 @@ public class LoginController implements Initializable {
         dto.setLogin(login);
         dto.setPassword(password);
         authenticator.authenticate(dto, (authenticationResult) -> {
-            Platform.runLater(() ->{
+            Platform.runLater(() -> {
                 waitingPopup.close();
-                if(authenticationResult.isAuthenticated()){
+                if (authenticationResult.isAuthenticated()) {
                     openAppAndCloseLoginStage();
-                } else{
+                } else {
                     showIncorrectCredentialsMessage();
                 }
             });
@@ -88,7 +88,7 @@ public class LoginController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene scene = new Scene(appRoot,1024,768);
+        Scene scene = new Scene(appRoot, 1024, 768);
         appStage.setTitle(APP_TITLE);
         appStage.setScene(scene);
         appStage.show();
@@ -97,11 +97,11 @@ public class LoginController implements Initializable {
 
     private void initializeExitButton() {
         exitButton.setOnAction((x) -> {
-           getStage().close();
+            getStage().close();
         });
     }
 
-    private Stage getStage(){
+    private Stage getStage() {
         return (Stage) loginAnchorPane.getScene().getWindow();
     }
 

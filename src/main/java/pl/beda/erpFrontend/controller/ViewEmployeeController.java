@@ -37,7 +37,6 @@ public class ViewEmployeeController implements Initializable {
         employeeRestClient = new EmployeeRestClient();
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         firstNameTextField.setEditable(false);
@@ -46,10 +45,10 @@ public class ViewEmployeeController implements Initializable {
         initializeOkButton();
     }
 
-    public void loadEmployeeData(Long idEmployee, EmployeeLoadedHandler handler){
+    public void loadEmployeeData(Long idEmployee, EmployeeLoadedHandler handler) {
         Thread thread = new Thread(() -> {
             EmployeeDto dto = employeeRestClient.getEmployee(idEmployee);
-            Platform.runLater(() ->{
+            Platform.runLater(() -> {
                 firstNameTextField.setText(dto.getFirstName());
                 lastNameTextField.setText(dto.getLastName());
                 salaryTextField.setText(dto.getSalary());
@@ -65,7 +64,7 @@ public class ViewEmployeeController implements Initializable {
         });
     }
 
-    private Stage getStage(){
+    private Stage getStage() {
         return (Stage) viewEmployeeBorderPane.getScene().getWindow();
     }
 
