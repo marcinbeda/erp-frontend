@@ -17,9 +17,9 @@ The frontend of the ERP (Enterprise-Resource-Planning) system.
 
 # <p align="center">Employees Table View</p>
 
-<p align="center"><img width="897" height="699" src="https://github.com/marcinbeda/erp-frontend/blob/master/screenshots/Employees_Table_View.PNG"></p>
+<p align="center"><img width="769.2" height="599.4" src="https://github.com/marcinbeda/erp-frontend/blob/master/screenshots/Employees_Table_View.PNG"></p>
 
 # <p align="center">Items Table View</p>
 
-<p align="center"><img width="897" height="699" src="https://github.com/marcinbeda/erp-frontend/blob/master/screenshots/Items_Table_View.PNG"></p>
+<p align="center"><img width="769.2" height="599.4" src="https://github.com/marcinbeda/erp-frontend/blob/master/screenshots/Items_Table_View.PNG"></p>
   
